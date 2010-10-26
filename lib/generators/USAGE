@@ -1,0 +1,15 @@
+Description:
+    Install one of ListSelect built in lists. Available lists:
+      countries_cldr.en
+      countries_iso3166_1_alpha_2.en
+      languages_cldr.en
+      google_adwords_countries.en
+      google_search_languages.en
+      google_adwords_languages.en
+      google_interface_languages.en
+
+Example:
+    rails generate list_select LIST_NAME
+
+    This will create:
+        locales/list_name.rb

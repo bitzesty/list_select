@@ -1,0 +1,107 @@
+ListSelect
+=============
+Localiazed select lists helper.
+
+Provides a simple helper to get an HTML select list of any lists defined in your locales files.
+Has builtin lists for selecting countries, languages and more.
+Adds country_select helper to integrate with SimpleForm and Formtastic.
+
+
+Requirements
+=======
+Tested with Rails 3.0.0. Might work with other versions, too.
+
+
+Installation
+=======
+Install a gem:
+  
+  gem install list_select  
+
+Add it to your Gemfile:
+
+  gem 'list_select'
+
+Done!
+
+Or you can install as a plugin:
+
+  rails plugin install git@github.com:bitzesty/list_select.git
+
+
+Example
+=======
+
+Define any list in your locale file RAILS_ROOT/config/locales/en.rb:
+
+  :en => {
+    :animals => {
+      :dog => 'A Dog',
+      :cat => 'A Cat',
+      :cow => 'A Cow',
+      :pig => 'A Pig'
+    }
+  }
+
+Make a select list in your view(examples of different usage):
+
+  <%= f.list_select(:pet, :animals) %>
+
+  <%= list_select("user", "pet", :animals) %>
+
+  <%= list_select_tag("user_pet", :animals) %>
+
+
+Options
+=======
+The only List Select specific option is a :priority_items option.
+All other options are the same as for other Rails form helpers.
+
+  <%= f.list_select(:pet, :animals, :priority_items => [ :dog, :cat ]) %>
+  <%= f.list_select(:pet, :animals, :default => :dog) %>
+  <%= f.list_select(:pet, :animals, :include_blank => 'Select your pet...') %>
+
+
+Built in lists
+========
+There are built in lists. They are:
+
+* countries_cldr.en
+* countries_iso3166_1_alpha_2.en      # Recommended for Chargify API
+* languages_cldr.en
+* google_adwords_countries.en
+* google_search_languages.en
+* google_adwords_languages.en
+* google_interface_languages.en
+
+You need to install list you need before you can use it.
+
+You can do this wth list_select generator.
+
+Example:
+  rails generate list_select --help               # See avalable lists
+  rails generate list_select countries_cldr.en    # Install one you need
+
+Notice:
+ You might need to restart your server for installed list to be available.
+
+Integration with 3rd party gems
+========
+ListSelect works with SimpleForm and Formtastic.
+It adds country_select helper campatible with them.
+You can also customize the countries list you use.
+Default country list is :countries_cldr.
+
+See examples:
+
+    <%= f.input :country %>                              # will use countries_cldr list (you should install it first)
+    <%= f.input :country, :list => :my_country_list %>   # use :my_country_list defined in your locale files
+    <%= f.input :country, :priority => [:US,:BY] %>      # set priority options
+    <%= f.input :country, :prompt => 'Select one...' %>  # set the prompt
+    <%= f.input :country, :include_blank => true %>      # include blank option
+
+TODO
+=========
+* Add tests
+
+Copyright (c) 2010 Dmitry Naumov, released under the MIT license
