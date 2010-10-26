@@ -102,5 +102,7 @@ See examples:
 == TODO
 
 * Add tests
+* Add rake tasks to refetch lists
+* Add more lists and locales
 
 Copyright (c) 2010 Dmitry Naumov, released under the MIT license
