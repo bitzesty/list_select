@@ -9,20 +9,20 @@ Adds country_select helper to integrate with SimpleForm and Formtastic.
 
 == Requirements
 
-Tested with Rails 3.0.0. Might work with other versions, too.
+Tested with Rails 3. Might work with other versions, too.
 
 
 == Installation
 
 Install a gem:
-  
-  gem install list_select  
 
-Add it to your Gemfile:
+  gem install list_select
+
+Or add it to your Gemfile:
 
   gem 'list_select'
 
-Or you can install as a plugin:
+Also you can install as a plugin:
 
   rails plugin install git@github.com:bitzesty/list_select.git
 
@@ -31,14 +31,12 @@ Or you can install as a plugin:
 
 Define any list in your locale file RAILS_ROOT/config/locales/en.rb:
 
-  :en => {
-    :animals => {
-      :dog => 'A Dog',
-      :cat => 'A Cat',
-      :cow => 'A Cow',
-      :pig => 'A Pig'
-    }
-  }
+  { :en => { :animals => {
+    :dog => 'A Dog',
+    :cat => 'A Cat',
+    :cow => 'A Cow',
+    :pig => 'A Pig'
+  }}}
 
 Make a select list in your view(examples of different usage):
 
@@ -105,4 +103,4 @@ See examples:
 * Add rake tasks to refetch lists
 * Add more lists and locales
 
-Copyright (c) 2010 Dmitry Naumov, released under the MIT license
+Copyright (c) 2010-2011 Dmitry Naumov, released under the MIT license
